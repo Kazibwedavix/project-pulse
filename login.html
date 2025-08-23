@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Pulse - Login</title>
-  <link rel="stylesheet" href="css/style.css"> <!-- FIXED: Added stylesheet link -->
+  <title>Login - Project Pulse</title> <!-- Improved title order -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="auth-page">
   <main class="auth-container">
     <h1>Project Pulse</h1>
     <p>Organize your tasks, boost your productivity</p>
 
-    <form class="auth-form" id="loginForm"> <!-- FIXED: Consistent camelCase ID -->
+    <form class="auth-form" id="loginForm">
       <h2>Login to Your Account</h2>
 
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required> <!-- FIXED: Added id="email" -->
+        <input type="email" id="email" name="email" required>
       </div>
 
       <div class="form-group">
@@ -29,6 +29,7 @@
 
     <p>Don't have an account? <a href="register.html">Register here</a>.</p>
   </main>
-  <script src="js/auth.js"></script>
+  <!-- Added 'defer' attribute for optimal loading -->
+  <script src="js/auth.js" defer></script>
 </body>
 </html>

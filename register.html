@@ -3,25 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Pulse - Register</title>
-  <link rel="stylesheet" href="css/style.css"> <!-- Fixed Link -->
+  <title>Register - Project Pulse</title> <!-- Improved title -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="auth-page">
   <main class="auth-container">
     <h1>Project Pulse</h1>
     <p>Organize your tasks, boost your productivity</p>
 
-    <form class="auth-form" id="registerForm"> <!-- Fixed ID -->
-      <h2>Create Your Account</h2> <!-- Fixed Heading -->
+    <form class="auth-form" id="registerForm">
+      <h2>Create Your Account</h2>
 
       <div class="form-group">
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required> <!-- Fixed type and added id -->
+        <input type="text" id="name" name="name" required>
       </div>
 
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required> <!-- Added id -->
+        <input type="email" id="email" name="email" required>
       </div>
 
       <div class="form-group">
@@ -29,7 +29,6 @@
         <input type="password" id="password" name="password" required>
       </div>
 
-      <!-- New Field: Confirm Password -->
       <div class="form-group">
         <label for="confirmPassword">Confirm Password</label>
         <input type="password" id="confirmPassword" name="confirmPassword" required>
@@ -38,10 +37,11 @@
       <button type="submit">Register</button>
     </form>
 
-    <!-- New Link for existing users -->
-    <p>Already have an account? <a href="index.html">Log in here</a>.</p>
+    <!-- Fixed the link href -->
+    <p>Already have an account? <a href="login.html">Log in here</a>.</p>
 
   </main>
-  <script src="js/auth.js"></script>
+  <!-- Added 'defer' attribute -->
+  <script src="js/auth.js" defer></script>
 </body>
 </html>

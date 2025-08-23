@@ -1,8 +1,9 @@
 /* css/style.css */
 
-/* 1. CSS Variables for our Design System (Keep this global) */
+/* 1. CSS Variables for our Design System */
 :root {
     --primary-color: #4361ee;
+    --primary-color-dark: #3a56d4; /* Define the dark shade */
     --secondary-color: #f8f9fa;
     --text-color: #212529;
     --success-color: #2ecc71;
@@ -11,7 +12,7 @@
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* 2. Basic CSS Reset (Keep this global) */
+/* 2. Basic CSS Reset */
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +22,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
-    line-height: 0.9;
+    line-height: 1.5; /* Improved for readability */
 }
 
 /* 3. SCOPED: All rules below now ONLY apply to the .auth-page */
@@ -105,7 +106,13 @@ body {
 }
 
 .auth-page button:hover {
-    background-color: #3a56d4;
+    background-color: var(--primary-color-dark); /* Use the variable */
+}
+
+/* Accessibility: Add a focus state for keyboard users */
+.auth-page button:focus {
+    outline: 2px solid var(--primary-color-dark);
+    outline-offset: 2px;
 }
 
 /* 6. Styling the bottom link */

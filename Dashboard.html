@@ -3,81 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Pulse - Dashboard</title>
+    <title>Dashboard - Project Pulse</title> <!-- Consistent title -->
     <link rel="stylesheet" href="css/style.css">
-  
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-    <!-- The overall container for the dashboard layout -->
     <div class="dashboard-layout">
+        <header class="dashboard-header">
+            <!-- Replaced inline style with a semantic class -->
+            <div class="header-brand">
+                <!-- Added aria-label for accessibility -->
+                <button class="mobile-menu-btn" aria-label="Toggle navigation menu">☰</button>
+                <h2>Project Pulse</h2>
+            </div>
+            <nav>
+                <span>Welcome, <span id="userName">User</span>!</span>
+                <button id="logoutBtn">Logout</button>
+            </nav>
+        </header>
 
-        <!-- Top Navigation Bar -->
-<header class="dashboard-header">
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <button class="mobile-menu-btn">☰</button>
-    <h2>Project Pulse</h2>
-  </div>
-  <nav>
-    <span>Welcome, <span id="userName">User</span>!</span>
-    <button id="logoutBtn">Logout</button>
-  </nav>
-</header>
-
-        <!-- Main Content Area - Split into Sidebar and Task View -->
         <main class="dashboard-main">
-
-            <!-- Sidebar - Project List -->
             <aside class="project-sidebar">
                 <div class="sidebar-header">
                     <h3>Your Projects</h3>
                     <button id="newProjectBtn">+ New Project</button>
                 </div>
                 <ul class="project-list" id="projectList">
-                    <!-- Projects will be dynamically added here by JavaScript later -->
-                    <li class="project-item">Example Project 1</li>
-                    <li class="project-item">Example Project 2</li>
-                    <!-- We'll delete these example items later -->
+                    <!-- JavaScript will populate this list -->
+                    <!-- Removed example <li> elements to avoid duplication -->
                 </ul>
             </aside>
 
-            <!-- Main Content - Task View -->
             <section class="task-view">
                 <div class="task-view-header">
                     <h3 id="currentProjectName">Select a Project</h3>
                     <button id="newTaskBtn" disabled>+ New Task</button>
                 </div>
                 <div class="task-list" id="taskList">
-                    <!-- Tasks for the selected project will be loaded here by JavaScript -->
                     <p>Select a project from the sidebar to view its tasks.</p>
                 </div>
             </section>
-
         </main>
     </div>
 
-
-<!-- The Modal Background -->
-<div id="projectModal" class="modal">
-  <!-- Modal Content Box -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <h3>Create New Project</h3>
-      <span class="modal-close">&times;</span> <!-- The close 'X' -->
+    <!-- New Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Project</h3>
+                <span class="modal-close" aria-label="Close modal">&times;</span>
+            </div>
+            <form id="projectForm">
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" name="projectName" required placeholder="e.g., Marketing Campaign">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="modalCancelBtn" class="btn btn-secondary">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Project</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <form id="projectForm">
-      <div class="form-group">
-        <label for="projectName">Project Name</label>
-        <input type="text" id="projectName" name="projectName" required placeholder="e.g., Marketing Campaign">
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="modalCancelBtn">Cancel</button>
-        <button type="submit">Create Project</button>
-      </div>
-    </form>
-  </div>
-</div>
-    <!-- We will write the JavaScript for the dashboard functionality here -->
-    <script src="js/dashboard.js"></script>
+
+    <!-- Added defer attribute -->
+    <script src="js/dashboard.js" defer></script>
 </body>
 </html>
