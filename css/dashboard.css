@@ -1,0 +1,336 @@
+/* css/dashboard.css */
+
+/* 1. The Overall Dashboard Layout Container */
+.dashboard-layout {
+    min-height: 100vh; /* Take at least the full viewport height */
+    display: flex;
+    flex-direction: column; /* Stack header and main vertically */
+}
+
+/* 2. The Top Header */
+.dashboard-header {
+    background-color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between; /* Push title left, nav right */
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow below header */
+    border-bottom: 1px solid #eee;
+}
+
+.dashboard-header h2 {
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.dashboard-header nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between the welcome text and the button */
+}
+
+#logoutBtn {
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+#logoutBtn:hover {
+    background-color: #e9ecef;
+}
+
+/* 3. The Main Content Area (Sidebar + Task View) */
+.dashboard-main {
+    display: flex;
+    flex: 1; /* This makes it take up all remaining vertical space */
+}
+
+/* 4. The Project Sidebar */
+.project-sidebar {
+    width: 300px; /* Fixed width for the sidebar */
+    background-color: var(--secondary-color);
+    border-right: 1px solid #ddd;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+#newProjectBtn {
+    padding: 0.4rem 0.8rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#newProjectBtn:hover {
+    background-color: #3a56d4;
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto; /* Adds a scrollbar if the list gets too long */
+    flex: 1; /* Makes the list take up available space, pushing the rest down */
+}
+
+.project-item {
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.project-item:hover {
+    background-color: #f8f9fa;
+    border-color: var(--primary-color);
+}
+
+/* 5. The Main Task View */
+.task-view {
+    flex: 1; /* Takes up all remaining horizontal space */
+    padding: 1.5rem;
+    background-color: white;
+}
+
+.task-view-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.task-view-header h3 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+#newTaskBtn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.task-list {
+    min-height: 200px;
+}
+/* css/dashboard.css */
+/* Add this at the end of the file */
+
+.project-item.active {
+    background-color: #e6eeff; /* A very light blue */
+    border-color: var(--primary-color);
+    font-weight: 600;
+}
+
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000; /* Sit on top of everything */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  display: flex; /* We'll use flexbox to center it */
+  justify-content: center;
+  align-items: center;
+  opacity: 0; /* Start invisible for animation */
+  visibility: hidden; /* Also hide it */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show the modal */
+.modal.show {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: #fefefe;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 90%;
+  max-width: 500px;
+  /* animation */
+  transform: translateY(-50px);
+  transition: transform 0.3s ease;
+}
+
+.modal.show .modal-content {
+  transform: translateY(0); /* Slide into place */
+}
+
+.modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h3 {
+  margin: 0;
+}
+
+.modal-close {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: var(--error-color);
+}
+
+/* Modal Body (where the form is) */
+.modal-content form {
+  padding: 1.5rem;
+}
+
+.modal-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+#modalCancelBtn {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+#modalCancelBtn:hover {
+  background-color: #e9ecef;
+}
+
+
+
+
+
+
+/* Responsive Modal */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%; /* Take up more of the screen on mobile */
+    margin: 1rem; /* Add some space from the edges */
+  }
+
+  .modal-header,
+  .modal-content form,
+  .modal-footer {
+    padding: 1rem; /* Reduce padding on smaller screens */
+  }
+
+  .modal-footer {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    gap: 0.5rem;
+  }
+
+  .modal-footer button {
+    width: 100%; /* Make buttons full-width */
+  }
+}
+
+
+/* RESPONSIVE DASHBOARD */
+/* ==================== */
+
+/* First, let's make the header responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 1rem;
+  }
+
+  .dashboard-header h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Now, the main layout shift for mobile */
+@media (max-width: 992px) { /* This will apply to tablets and phones */
+  .dashboard-main {
+    flex-direction: column; /* Stack sidebar and main vertically */
+  }
+
+  .project-sidebar {
+    width: 100%; /* Sidebar takes full width */
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    display: none; /* Hide it by default on mobile */
+  }
+
+  /* We'll add a class to show the sidebar when the menu button is clicked */
+  .project-sidebar.mobile-open {
+    display: flex;
+  }
+
+  .task-view {
+    width: 100%; /* Task view takes full width */
+  }
+
+  /* Add a hamburger menu button to the header */
+  .mobile-menu-btn {
+    display: block; /* Show the button */
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+  }
+
+  .dashboard-header nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+/* For larger phones and smaller tablets */
+@media (max-width: 600px) {
+  .dashboard-header nav {
+    font-size: 0.9rem; /* Slightly smaller text */
+  }
+
+  #logoutBtn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .task-view {
+    padding: 1rem;
+  }
+}
+
+/* Default: hide the mobile menu button on desktop */
+.mobile-menu-btn {
+  display: none;
+}

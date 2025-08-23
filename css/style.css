@@ -1,0 +1,125 @@
+/* css/style.css */
+
+/* 1. CSS Variables for our Design System (Keep this global) */
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #f8f9fa;
+    --text-color: #212529;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 2. Basic CSS Reset (Keep this global) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 0.9;
+}
+
+/* 3. SCOPED: All rules below now ONLY apply to the .auth-page */
+.auth-page {
+    background-color: var(--secondary-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.auth-page .auth-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-page .auth-container h1 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.auth-page .auth-container > p {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+/* 4. Styling the Form */
+.auth-page .auth-form {
+    margin-bottom: 1.5rem;
+}
+
+.auth-page .auth-form h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.auth-page .form-group {
+    margin-bottom: 1rem;
+}
+
+.auth-page .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.auth-page .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+.auth-page .form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+/* 5. Styling the Button */
+.auth-page button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.auth-page button:hover {
+    background-color: #3a56d4;
+}
+
+/* 6. Styling the bottom link */
+.auth-page .auth-container > p:last-of-type {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.auth-page .auth-container a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-page .auth-container a:hover {
+    text-decoration: underline;
+}
