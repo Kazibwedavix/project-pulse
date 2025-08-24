@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netlify Deployment Guide</title>
+    <title>Home - My Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -17,7 +17,6 @@
             background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
             color: #333;
             line-height: 1.6;
-            padding: 20px;
             min-height: 100vh;
         }
         
@@ -28,200 +27,261 @@
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
             overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         
         header {
             background: #00c7b7;
             color: white;
-            padding: 25px;
-            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .logo {
+            font-size: 24px;
+            font-weight: 700;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 10px;
         }
         
         .logo i {
-            font-size: 36px;
+            margin-right: 10px;
         }
         
-        .logo h1 {
-            font-size: 32px;
-            font-weight: 700;
-        }
-        
-        .subtitle {
-            font-size: 18px;
-            opacity: 0.9;
-            margin-top: 10px;
-        }
-        
-        .content {
-            padding: 30px;
-        }
-        
-        .section {
-            margin-bottom: 40px;
-        }
-        
-        .section-title {
-            color: #00c7b7;
-            margin-bottom: 20px;
+        nav ul {
             display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
+            list-style: none;
         }
         
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        nav ul li {
+            margin-left: 20px;
         }
         
-        .step-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            border-left: 4px solid #00c7b7;
-            transition: transform 0.3s ease;
-        }
-        
-        .step-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .step-number {
-            background: #00c7b7;
+        nav ul li a {
             color: white;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            font-weight: bold;
-            font-size: 18px;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
         }
         
-        .step-title {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: #2d3436;
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
         
-        .step-content {
-            color: #636e72;
+        nav ul li a.active {
+            background: rgba(255, 255, 255, 0.3);
         }
         
-        .code-block {
-            background: #2d3436;
-            color: #dfe6e9;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            font-family: 'Courier New', Courier, monospace;
-            overflow-x: auto;
-        }
-        
-        .tip-box {
-            background: #ffeaa7;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #fdcb6e;
-        }
-        
-        .warning-box {
-            background: #ffebee;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border-left: 4px solid #e57373;
-        }
-        
-        .deploy-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .method-card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 20px;
+        .hero {
             text-align: center;
-            transition: all 0.3s ease;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0, 199, 183, 0.9), rgba(0, 199, 183, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%2300c7b7" width="100" height="100"/><path fill="%2300a396" d="M0 0L100 100" stroke-width="0"/></svg>');
+            color: white;
         }
         
-        .method-card:hover {
-            border-color: #00c7b7;
-            box-shadow: 0 5px 15px rgba(0, 199, 183, 0.1);
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
         }
         
-        .method-icon {
-            font-size: 40px;
-            color: #00c7b7;
-            margin-bottom: 15px;
-        }
-        
-        .method-title {
+        .hero p {
             font-size: 20px;
-            margin-bottom: 10px;
-            color: #2d3436;
+            max-width: 700px;
+            margin: 0 auto 30px;
         }
         
         .btn {
             display: inline-block;
-            background: #00c7b7;
-            color: white;
-            padding: 12px 25px;
+            background: white;
+            color: #00c7b7;
+            padding: 15px 30px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 15px;
+            margin: 10px;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
         }
         
         .btn:hover {
-            background: #00a396;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
         
         .btn-secondary {
-            background: #6c5ce7;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
         }
         
-        .btn-secondary:hover {
-            background: #5649c5;
+        .features {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        .features h2 {
+            color: #00c7b7;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 40px;
+            color: #00c7b7;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: #2d3436;
+        }
+        
+        .pages-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+        
+        .pages-section h2 {
+            text-align: center;
+            color: #00c7b7;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+        
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .page-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .page-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .page-content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .page-icon {
+            font-size: 36px;
+            color: #00c7b7;
+            margin-bottom: 15px;
+        }
+        
+        .page-card h3 {
+            margin-bottom: 15px;
+            color: #2d3436;
+        }
+        
+        .page-card p {
+            color: #636e72;
+            margin-bottom: 20px;
+        }
+        
+        .page-link {
+            display: inline-block;
+            background: #00c7b7;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .page-link:hover {
+            background: #00a396;
         }
         
         footer {
+            background: #2d3436;
+            color: white;
             text-align: center;
-            padding: 20px;
-            color: #7a7a7a;
-            font-size: 14px;
-            border-top: 1px solid #eaeaea;
-            background: #f8f9fa;
+            padding: 30px 20px;
+        }
+        
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: #00c7b7;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
         }
         
         @media (max-width: 768px) {
-            .steps, .deploy-methods {
-                grid-template-columns: 1fr;
+            header {
+                flex-direction: column;
+                text-align: center;
             }
             
-            .section-title {
-                font-size: 22px;
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .feature-grid, .pages-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -231,113 +291,148 @@
         <header>
             <div class="logo">
                 <i class="fab fa-netlify"></i>
-                <h1>Netlify Deployment Guide</h1>
+                <span>My Website</span>
             </div>
-            <p class="subtitle">Step-by-step instructions to deploy your website successfully</p>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </nav>
         </header>
         
-        <div class="content">
-            <div class="section">
-                <h2 class="section-title"><i class="fas fa-lightbulb"></i> Before You Begin</h2>
-                <p>Make sure you have the following ready:</p>
-                <ul style="margin: 15px 0 15px 30px; color: #636e72;">
-                    <li>Your website files (HTML, CSS, JS, images, etc.)</li>
-                    <li>A Netlify account (sign up at <a href="https://netlify.com" target="_blank">netlify.com</a>)</li>
-                    <li>If using Git, your repository URL (GitHub, GitLab, or Bitbucket)</li>
-                </ul>
+        <section class="hero">
+            <h1>Welcome to Our Website</h1>
+            <p>Discover amazing features and services designed just for you. Join our community today!</p>
+            <div>
+                <a href="register.html" class="btn">Get Started</a>
+                <a href="login.html" class="btn btn-secondary">Login</a>
             </div>
-            
-            <div class="section">
-                <h2 class="section-title"><i class="fas fa-list-ol"></i> Deployment Steps</h2>
-                <div class="steps">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3 class="step-title">Prepare Your Files</h3>
-                        <p class="step-content">Ensure your main HTML file is named <code>index.html</code> and is in the root folder. Organize all assets in proper folders (css, js, images).</p>
+        </section>
+        
+        <section class="features">
+            <h2>Why Choose Us?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3 class="step-title">Drag & Drop Deployment</h3>
-                        <p class="step-content">Go to Netlify's dashboard, find the drag-and-drop area, and upload your folder containing all website files.</p>
-                    </div>
-                    
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3 class="step-title">Wait for Deployment</h3>
-                        <p class="step-content">Netlify will process your files and deploy your site. This usually takes less than a minute.</p>
-                    </div>
-                    
-                    <div class="step-card">
-                        <div class="step-number">4</div>
-                        <h3 class="step-title">Access Your Site</h3>
-                        <p class="step-content">Once deployed, Netlify will provide you with a unique URL to access your live website.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="section">
-                <h2 class="section-title"><i class="fas fa-exclamation-circle"></i> Common Issues & Solutions</h2>
-                
-                <div class="warning-box">
-                    <h3><i class="fas fa-times-circle"></i> Page Not Found Error</h3>
-                    <p>If you see a "Page Not Found" error, make sure your main HTML file is named <code>index.html</code> and is in the root folder.</p>
+                    <h3>Fast Performance</h3>
+                    <p>Our website is optimized for speed and performance, ensuring a smooth user experience.</p>
                 </div>
                 
-                <div class="warning-box">
-                    <h3><i class="fas fa-times-circle"></i> Styling Not Applied</h3>
-                    <p>If your CSS isn't loading, check that the file paths in your HTML are correct. Use relative paths like <code>css/style.css</code> instead of absolute paths.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Secure & Safe</h3>
+                    <p>We prioritize your security with advanced encryption and protection measures.</p>
                 </div>
                 
-                <div class="tip-box">
-                    <h3><i class="fas fa-lightbulb"></i> Custom Domain Setup</h3>
-                    <p>To use a custom domain, go to Domain settings in your Netlify dashboard and follow the instructions to configure your DNS records.</p>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>User Friendly</h3>
+                    <p>Easy to navigate interface designed with user experience in mind.</p>
                 </div>
             </div>
-            
-            <div class="section">
-                <h2 class="section-title"><i class="fas fa-rocket"></i> Deployment Methods</h2>
-                <div class="deploy-methods">
-                    <div class="method-card">
-                        <div class="method-icon">
-                            <i class="fas fa-cloud-upload-alt"></i>
+        </section>
+        
+        <section class="pages-section">
+            <h2>Website Pages</h2>
+            <div class="pages-grid">
+                <div class="page-card">
+                    <div class="page-content">
+                        <div class="page-icon">
+                            <i class="fas fa-home"></i>
                         </div>
-                        <h3 class="method-title">Drag & Drop</h3>
-                        <p>Simply drag your folder containing website files to Netlify's dashboard.</p>
-                        <a href="https://app.netlify.com/drop" target="_blank" class="btn">Try It</a>
+                        <h3>Home Page</h3>
+                        <p>Main landing page with overview and navigation</p>
+                        <a href="#" class="page-link">Current Page</a>
                     </div>
-                    
-                    <div class="method-card">
-                        <div class="method-icon">
-                            <i class="fab fa-github"></i>
+                </div>
+                
+                <div class="page-card">
+                    <div class="page-content">
+                        <div class="page-icon">
+                            <i class="fas fa-tachometer-alt"></i>
                         </div>
-                        <h3 class="method-title">Git Deployment</h3>
-                        <p>Connect your GitHub, GitLab, or Bitbucket repository for automatic deployments.</p>
-                        <a href="https://docs.netlify.com/configure-builds/get-started/" target="_blank" class="btn btn-secondary">Learn More</a>
+                        <h3>Dashboard</h3>
+                        <p>Your personal dashboard with account information</p>
+                        <a href="dashboard.html" class="page-link">Visit Dashboard</a>
                     </div>
-                    
-                    <div class="method-card">
-                        <div class="method-icon">
-                            <i class="fas fa-terminal"></i>
+                </div>
+                
+                <div class="page-card">
+                    <div class="page-content">
+                        <div class="page-icon">
+                            <i class="fas fa-sign-in-alt"></i>
                         </div>
-                        <h3 class="method-title">Netlify CLI</h3>
-                        <p>Use the command line interface to deploy from your local development environment.</p>
-                        <a href="https://docs.netlify.com/cli/get-started/" target="_blank" class="btn">Get Started</a>
+                        <h3>Login</h3>
+                        <p>Access your account with your credentials</p>
+                        <a href="login.html" class="page-link">Login Now</a>
+                    </div>
+                </div>
+                
+                <div class="page-card">
+                    <div class="page-content">
+                        <div class="page-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Register</h3>
+                        <p>Create a new account to access all features</p>
+                        <a href="register.html" class="page-link">Sign Up</a>
                     </div>
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <h2 style="color: #00c7b7; margin-bottom: 20px;">Need More Help?</h2>
-                <p style="margin-bottom: 20px; color: #636e72;">Check out Netlify's comprehensive documentation or visit their support forum.</p>
-                <a href="https://docs.netlify.com/" target="_blank" class="btn">Netlify Documentation</a>
-                <a href="https://community.netlify.com/" target="_blank" class="btn btn-secondary">Community Forum</a>
-            </div>
-        </div>
+        </section>
         
         <footer>
-            <p>This guide is created for educational purposes. Netlify is a trademark of Netlify, Inc.</p>
+            <div class="footer-content">
+                <p>&copy; 2023 My Website. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+                <p>Deployed on <a href="https://www.netlify.com/" style="color: #00c7b7;">Netlify</a></p>
+            </div>
         </footer>
     </div>
+
+    <script>
+        // Simple JavaScript to demonstrate navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Website loaded successfully!');
+            
+            // Add click event to navigation links
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Simulate page loading for demonstration
+            const pageLinks = document.querySelectorAll('.page-link');
+            pageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') {
+                        e.preventDefault();
+                        alert('You are already on the home page!');
+                    } else if (href === 'dashboard.html' || href === 'login.html' || href === 'register.html') {
+                        e.preventDefault();
+                        alert(`In a real website, this would navigate to ${href}`);
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
