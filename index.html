@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TaskFlow - Smart Task Management</title>
+    <title>Project Pulse - Smart Task Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #4361ee;
-            --secondary: #3a0ca3;
-            --accent: #4cc9f0;
-            --success: #4ade80;
-            --warning: #facc15;
-            --error: #f87171;
-            --dark: #1e1b4b;
-            --light: #f0f9ff;
-            --text: #1f2937;
-            --text-light: #6b7280;
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --success: #4CAF50;
+            --warning: #FFC107;
+            --error: #F44336;
+            --dark: #2D2B55;
+            --light: #F8F9FF;
+            --text: #2A2A2A;
+            --text-light: #6C757D;
         }
         
         * {
@@ -28,10 +28,11 @@
         }
         
         body {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            background: linear-gradient(135deg, #F8F9FF 0%, #EDF0FF 100%);
             color: var(--text);
             line-height: 1.6;
             min-height: 100vh;
+            padding: 20px;
         }
         
         .container {
@@ -39,14 +40,12 @@
             margin: 0 auto;
             background: white;
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(30, 27, 75, 0.1);
+            box-shadow: 0 15px 40px rgba(45, 43, 85, 0.1);
             overflow: hidden;
-            margin-top: 20px;
-            margin-bottom: 20px;
         }
         
         header {
-            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(120deg, var(--primary) 0%, var(--dark) 100%);
             color: white;
             padding: 20px 30px;
             display: flex;
@@ -95,13 +94,13 @@
         nav ul li a.active {
             background: var(--accent);
             color: var(--dark);
-            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.3);
+            box-shadow: 0 5px 15px rgba(54, 209, 220, 0.3);
         }
         
         .hero {
             padding: 80px 40px;
             text-align: center;
-            background: linear-gradient(120deg, rgba(67, 97, 238, 0.05) 0%, rgba(76, 201, 240, 0.05) 100%);
+            background: linear-gradient(120deg, rgba(108, 99, 255, 0.05) 0%, rgba(54, 209, 220, 0.05) 100%);
             position: relative;
             overflow: hidden;
         }
@@ -160,14 +159,14 @@
             font-weight: 600;
             margin: 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.25);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.25);
             border: none;
             cursor: pointer;
         }
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(67, 97, 238, 0.35);
+            box-shadow: 0 15px 25px rgba(108, 99, 255, 0.35);
         }
         
         .btn-secondary {
@@ -178,7 +177,7 @@
         }
         
         .btn-secondary:hover {
-            background: rgba(67, 97, 238, 0.05);
+            background: rgba(108, 99, 255, 0.05);
         }
         
         .features {
@@ -211,9 +210,9 @@
             background: white;
             border-radius: 20px;
             padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(30, 27, 75, 0.08);
+            box-shadow: 0 10px 30px rgba(45, 43, 85, 0.08);
             transition: transform 0.3s ease;
-            border: 1px solid rgba(67, 97, 238, 0.1);
+            border: 1px solid rgba(108, 99, 255, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -245,7 +244,7 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 25px;
-            background: linear-gradient(120deg, rgba(67, 97, 238, 0.1) 0%, rgba(76, 201, 240, 0.1) 100%);
+            background: linear-gradient(120deg, rgba(108, 99, 255, 0.1) 0%, rgba(54, 209, 220, 0.1) 100%);
             border-radius: 20px;
             font-size: 32px;
             color: var(--primary);
@@ -262,7 +261,7 @@
         }
         
         .dashboard-preview {
-            background: linear-gradient(120deg, rgba(67, 97, 238, 0.03) 0%, rgba(76, 201, 240, 0.03) 100%);
+            background: linear-gradient(120deg, rgba(108, 99, 255, 0.03) 0%, rgba(54, 209, 220, 0.03) 100%);
             padding: 80px 40px;
             text-align: center;
         }
@@ -278,7 +277,7 @@
             background: white;
             border-radius: 16px;
             padding: 30px;
-            box-shadow: 0 20px 40px rgba(30, 27, 75, 0.1);
+            box-shadow: 0 20px 40px rgba(45, 43, 85, 0.1);
             max-width: 900px;
             margin: 0 auto;
             position: relative;
@@ -291,7 +290,7 @@
             align-items: center;
             margin-bottom: 25px;
             padding-bottom: 15px;
-            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
+            border-bottom: 1px solid rgba(108, 99, 255, 0.1);
         }
         
         .preview-title {
@@ -327,7 +326,7 @@
             align-items: center;
             gap: 12px;
             padding: 12px 0;
-            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
+            border-bottom: 1px solid rgba(108, 99, 255, 0.1);
         }
         
         .task-item:last-child {
@@ -384,7 +383,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 0;
-            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
+            border-bottom: 1px solid rgba(108, 99, 255, 0.1);
         }
         
         .stat-item:last-child {
@@ -402,7 +401,7 @@
         
         .progress-bar {
             height: 8px;
-            background: rgba(67, 97, 238, 0.2);
+            background: rgba(108, 99, 255, 0.2);
             border-radius: 4px;
             overflow: hidden;
             margin-top: 5px;
@@ -417,7 +416,7 @@
         .cta-section {
             padding: 80px 40px;
             text-align: center;
-            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(120deg, var(--primary) 0%, var(--dark) 100%);
             color: white;
         }
         
@@ -579,9 +578,9 @@
         <header>
             <div class="logo">
                 <div class="logo-icon">
-                    <i class="fas fa-tasks"></i>
+                    <i class="fas fa-wave-square"></i>
                 </div>
-                <span>TaskFlow</span>
+                <span>Project Pulse</span>
             </div>
             <nav>
                 <ul>
@@ -594,8 +593,8 @@
         </header>
         
         <section class="hero">
-            <h1>Streamline Your Workflow with <span>TaskFlow</span></h1>
-            <p>An intuitive task management system designed to help teams and individuals organize, track, and complete projects efficiently.</p>
+            <h1>Feel the <span>Project Pulse</span></h1>
+            <p>Stay in rhythm with your tasks and projects. Our intuitive system keeps your workflow beating strong.</p>
             <div>
                 <a href="register.html" class="btn">Get Started Free</a>
                 <a href="login.html" class="btn btn-secondary">Login</a>
@@ -603,50 +602,50 @@
         </section>
         
         <section class="features">
-            <h2>Why Choose TaskFlow?</h2>
+            <h2>Why Project Pulse?</h2>
             <p>Our platform offers everything you need to manage tasks and boost productivity</p>
             
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-layer-group"></i>
+                        <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>Organized Projects</h3>
-                    <p>Keep all your tasks structured in projects with customizable categories and priorities.</p>
+                    <h3>Healthy Workflow</h3>
+                    <p>Keep your projects alive with our heartbeat monitoring system that ensures nothing gets overlooked.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-network-wired"></i>
                     </div>
-                    <h3>Team Collaboration</h3>
-                    <p>Assign tasks, share updates, and communicate with your team in real-time.</p>
+                    <h3>Team Synchronization</h3>
+                    <p>Keep your team in sync with real-time updates and collaborative features.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-chart-pie"></i>
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Progress Tracking</h3>
-                    <p>Visualize your progress with charts and metrics to stay on target with your goals.</p>
+                    <h3>Performance Analytics</h3>
+                    <p>Monitor your project's vital signs with detailed analytics and progress tracking.</p>
                 </div>
             </div>
         </section>
         
         <section class="dashboard-preview">
-            <h2>See TaskFlow in Action</h2>
+            <h2>Experience Project Pulse</h2>
             
             <div class="preview-container">
                 <div class="preview-header">
                     <div class="preview-title">Project Dashboard</div>
                     <div class="preview-actions">
-                        <span style="color: var(--success);"><i class="fas fa-circle"></i> Online</span>
+                        <span style="color: var(--success);"><i class="fas fa-circle"></i> Active</span>
                     </div>
                 </div>
                 
                 <div class="preview-content">
                     <div class="task-list">
-                        <h3><i class="fas fa-list-check"></i> Recent Tasks</h3>
+                        <h3><i class="fas fa-tasks"></i> Current Tasks</h3>
                         
                         <div class="task-item">
                             <div class="task-checkbox checked"><i class="fas fa-check"></i></div>
@@ -682,7 +681,7 @@
                     </div>
                     
                     <div class="stats-panel">
-                        <h3><i class="fas fa-chart-simple"></i> Project Stats</h3>
+                        <h3><i class="fas fa-chart-pie"></i> Project Stats</h3>
                         
                         <div class="stat-item">
                             <div class="stat-label">Completion Rate</div>
@@ -712,8 +711,8 @@
         </section>
         
         <section class="cta-section">
-            <h2>Ready to Boost Your Productivity?</h2>
-            <p>Join thousands of users who are already managing their tasks efficiently with TaskFlow</p>
+            <h2>Ready to Feel the Pulse?</h2>
+            <p>Join teams who are already managing their projects with perfect rhythm</p>
             <div class="cta-buttons">
                 <a href="register.html" class="btn btn-light">Create Account</a>
                 <a href="login.html" class="btn btn-outline-light">Login Now</a>
@@ -724,9 +723,9 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <div class="logo-icon">
-                        <i class="fas fa-tasks"></i>
+                        <i class="fas fa-wave-square"></i>
                     </div>
-                    <span>TaskFlow</span>
+                    <span>Project Pulse</span>
                 </div>
                 
                 <p>Smart task management for teams and individuals</p>
@@ -748,7 +747,7 @@
                 </div>
                 
                 <div class="copyright">
-                    <p>&copy; 2025 TaskFlow. All rights reserved. | Deployed on <a href="https://www.netlify.com/" style="color: var(--accent);">Netlify</a></p>
+                    <p>&copy; 2023 Project Pulse. All rights reserved. | Deployed on <a href="https://www.netlify.com/" style="color: var(--accent);">Netlify</a></p>
                 </div>
             </div>
         </footer>
@@ -757,7 +756,7 @@
     <script>
         // Simple JavaScript for interactive elements
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('TaskFlow website loaded successfully!');
+            console.log('Project Pulse website loaded successfully!');
             
             // Task checkbox interaction
             const taskCheckboxes = document.querySelectorAll('.task-checkbox:not(.checked)');
