@@ -3,19 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - My Website</title>
+    <title>TaskFlow - Smart Task Management</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3a0ca3;
+            --accent: #4cc9f0;
+            --success: #4ade80;
+            --warning: #facc15;
+            --error: #f87171;
+            --dark: #1e1b4b;
+            --light: #f0f9ff;
+            --text: #1f2937;
+            --text-light: #6b7280;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
         
         body {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: #333;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: var(--text);
             line-height: 1.6;
             min-height: 100vh;
         }
@@ -24,109 +38,166 @@
             max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(30, 27, 75, 0.1);
             overflow: hidden;
             margin-top: 20px;
             margin-bottom: 20px;
         }
         
         header {
-            background: #00c7b7;
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
-            padding: 20px;
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         
         .logo {
-            font-size: 24px;
-            font-weight: 700;
             display: flex;
             align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
         }
         
-        .logo i {
-            margin-right: 10px;
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(15deg);
         }
         
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 20px;
+            gap: 5px;
         }
         
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-weight: 600;
-            padding: 8px 15px;
-            border-radius: 5px;
-            transition: background 0.3s;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
         }
         
         nav ul li a:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
         }
         
         nav ul li a.active {
-            background: rgba(255, 255, 255, 0.3);
+            background: var(--accent);
+            color: var(--dark);
+            box-shadow: 0 5px 15px rgba(76, 201, 240, 0.3);
         }
         
         .hero {
+            padding: 80px 40px;
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(rgba(0, 199, 183, 0.9), rgba(0, 199, 183, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%2300c7b7" width="100" height="100"/><path fill="%2300a396" d="M0 0L100 100" stroke-width="0"/></svg>');
-            color: white;
+            background: linear-gradient(120deg, rgba(67, 97, 238, 0.05) 0%, rgba(76, 201, 240, 0.05) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%);
+            opacity: 0.05;
+            top: -150px;
+            right: -150px;
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(120deg, var(--secondary) 0%, var(--primary) 100%);
+            opacity: 0.05;
+            bottom: -100px;
+            left: -100px;
         }
         
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 700;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .hero p {
             font-size: 20px;
             max-width: 700px;
-            margin: 0 auto 30px;
+            margin: 0 auto 40px;
+            color: var(--text-light);
         }
         
         .btn {
             display: inline-block;
-            background: white;
-            color: #00c7b7;
-            padding: 15px 30px;
-            border-radius: 30px;
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 16px 35px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             margin: 10px;
             transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(67, 97, 238, 0.25);
+            border: none;
+            cursor: pointer;
         }
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 25px rgba(67, 97, 238, 0.35);
         }
         
         .btn-secondary {
             background: transparent;
-            border: 2px solid white;
-            color: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(67, 97, 238, 0.05);
         }
         
         .features {
-            padding: 60px 20px;
+            padding: 80px 40px;
             text-align: center;
         }
         
         .features h2 {
-            color: #00c7b7;
-            margin-bottom: 40px;
+            color: var(--dark);
+            margin-bottom: 20px;
             font-size: 36px;
+            font-weight: 700;
+        }
+        
+        .features > p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 60px;
+            font-size: 18px;
         }
         
         .feature-grid {
@@ -137,99 +208,254 @@
         }
         
         .feature-card {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(30, 27, 75, 0.08);
             transition: transform 0.3s ease;
+            border: 1px solid rgba(67, 97, 238, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         .feature-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+        }
+        
+        .feature-card:hover::after {
+            opacity: 1;
         }
         
         .feature-icon {
-            font-size: 40px;
-            color: #00c7b7;
-            margin-bottom: 20px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            background: linear-gradient(120deg, rgba(67, 97, 238, 0.1) 0%, rgba(76, 201, 240, 0.1) 100%);
+            border-radius: 20px;
+            font-size: 32px;
+            color: var(--primary);
         }
         
         .feature-card h3 {
             margin-bottom: 15px;
-            color: #2d3436;
+            color: var(--dark);
+            font-weight: 600;
         }
         
-        .pages-section {
-            background: #f8f9fa;
-            padding: 60px 20px;
+        .feature-card p {
+            color: var(--text-light);
         }
         
-        .pages-section h2 {
+        .dashboard-preview {
+            background: linear-gradient(120deg, rgba(67, 97, 238, 0.03) 0%, rgba(76, 201, 240, 0.03) 100%);
+            padding: 80px 40px;
             text-align: center;
-            color: #00c7b7;
+        }
+        
+        .dashboard-preview h2 {
+            color: var(--dark);
             margin-bottom: 40px;
             font-size: 36px;
+            font-weight: 700;
         }
         
-        .pages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .page-card {
+        .preview-container {
             background: white;
-            border-radius: 10px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(30, 27, 75, 0.1);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
         }
         
-        .page-card:hover {
-            transform: translateY(-5px);
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
         }
         
-        .page-content {
+        .preview-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .preview-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+        }
+        
+        .task-list {
+            background: var(--light);
+            border-radius: 12px;
             padding: 20px;
+        }
+        
+        .task-list h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .task-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
+        }
+        
+        .task-item:last-child {
+            border-bottom: none;
+        }
+        
+        .task-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            border: 2px solid var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .task-checkbox.checked {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .task-info {
+            flex: 1;
+        }
+        
+        .task-title {
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .task-date {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+        
+        .stats-panel {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .stats-panel h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(67, 97, 238, 0.1);
+        }
+        
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        
+        .stat-label {
+            color: var(--text-light);
+        }
+        
+        .stat-value {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(67, 97, 238, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 5px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 4px;
+        }
+        
+        .cta-section {
+            padding: 80px 40px;
             text-align: center;
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
         }
         
-        .page-icon {
+        .cta-section h2 {
             font-size: 36px;
-            color: #00c7b7;
-            margin-bottom: 15px;
-        }
-        
-        .page-card h3 {
-            margin-bottom: 15px;
-            color: #2d3436;
-        }
-        
-        .page-card p {
-            color: #636e72;
             margin-bottom: 20px;
         }
         
-        .page-link {
-            display: inline-block;
-            background: #00c7b7;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s;
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-size: 18px;
+            opacity: 0.9;
         }
         
-        .page-link:hover {
-            background: #00a396;
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-light {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-outline-light {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
         }
         
         footer {
-            background: #2d3436;
+            background: var(--dark);
             color: white;
+            padding: 50px 40px 30px;
             text-align: center;
-            padding: 30px 20px;
         }
         
         .footer-content {
@@ -237,39 +463,83 @@
             margin: 0 auto;
         }
         
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
         .footer-links {
             display: flex;
             justify-content: center;
             list-style: none;
-            margin: 20px 0;
-        }
-        
-        .footer-links li {
-            margin: 0 15px;
+            margin: 30px 0;
+            gap: 30px;
+            flex-wrap: wrap;
         }
         
         .footer-links a {
-            color: #00c7b7;
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
+            transition: color 0.3s;
         }
         
         .footer-links a:hover {
-            text-decoration: underline;
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
         }
         
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
                 text-align: center;
+                padding: 20px;
             }
             
             nav ul {
                 margin-top: 20px;
                 justify-content: center;
+                flex-wrap: wrap;
             }
             
-            nav ul li {
-                margin: 0 10px;
+            .hero {
+                padding: 60px 20px;
             }
             
             .hero h1 {
@@ -280,8 +550,26 @@
                 font-size: 18px;
             }
             
-            .feature-grid, .pages-grid {
+            .features, .dashboard-preview {
+                padding: 60px 20px;
+            }
+            
+            .feature-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .preview-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
             }
         }
     </style>
@@ -290,8 +578,10 @@
     <div class="container">
         <header>
             <div class="logo">
-                <i class="fab fa-netlify"></i>
-                <span>My Website</span>
+                <div class="logo-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <span>TaskFlow</span>
             </div>
             <nav>
                 <ul>
@@ -304,132 +594,190 @@
         </header>
         
         <section class="hero">
-            <h1>Welcome to Our Website</h1>
-            <p>Discover amazing features and services designed just for you. Join our community today!</p>
+            <h1>Streamline Your Workflow with <span>TaskFlow</span></h1>
+            <p>An intuitive task management system designed to help teams and individuals organize, track, and complete projects efficiently.</p>
             <div>
-                <a href="register.html" class="btn">Get Started</a>
+                <a href="register.html" class="btn">Get Started Free</a>
                 <a href="login.html" class="btn btn-secondary">Login</a>
             </div>
         </section>
         
         <section class="features">
-            <h2>Why Choose Us?</h2>
+            <h2>Why Choose TaskFlow?</h2>
+            <p>Our platform offers everything you need to manage tasks and boost productivity</p>
+            
             <div class="feature-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-rocket"></i>
+                        <i class="fas fa-layer-group"></i>
                     </div>
-                    <h3>Fast Performance</h3>
-                    <p>Our website is optimized for speed and performance, ensuring a smooth user experience.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Secure & Safe</h3>
-                    <p>We prioritize your security with advanced encryption and protection measures.</p>
+                    <h3>Organized Projects</h3>
+                    <p>Keep all your tasks structured in projects with customizable categories and priorities.</p>
                 </div>
                 
                 <div class="feature-card">
                     <div class="feature-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>User Friendly</h3>
-                    <p>Easy to navigate interface designed with user experience in mind.</p>
+                    <h3>Team Collaboration</h3>
+                    <p>Assign tasks, share updates, and communicate with your team in real-time.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Progress Tracking</h3>
+                    <p>Visualize your progress with charts and metrics to stay on target with your goals.</p>
                 </div>
             </div>
         </section>
         
-        <section class="pages-section">
-            <h2>Website Pages</h2>
-            <div class="pages-grid">
-                <div class="page-card">
-                    <div class="page-content">
-                        <div class="page-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3>Home Page</h3>
-                        <p>Main landing page with overview and navigation</p>
-                        <a href="#" class="page-link">Current Page</a>
+        <section class="dashboard-preview">
+            <h2>See TaskFlow in Action</h2>
+            
+            <div class="preview-container">
+                <div class="preview-header">
+                    <div class="preview-title">Project Dashboard</div>
+                    <div class="preview-actions">
+                        <span style="color: var(--success);"><i class="fas fa-circle"></i> Online</span>
                     </div>
                 </div>
                 
-                <div class="page-card">
-                    <div class="page-content">
-                        <div class="page-icon">
-                            <i class="fas fa-tachometer-alt"></i>
+                <div class="preview-content">
+                    <div class="task-list">
+                        <h3><i class="fas fa-list-check"></i> Recent Tasks</h3>
+                        
+                        <div class="task-item">
+                            <div class="task-checkbox checked"><i class="fas fa-check"></i></div>
+                            <div class="task-info">
+                                <div class="task-title">Design homepage layout</div>
+                                <div class="task-date">Due: Today</div>
+                            </div>
                         </div>
-                        <h3>Dashboard</h3>
-                        <p>Your personal dashboard with account information</p>
-                        <a href="dashboard.html" class="page-link">Visit Dashboard</a>
+                        
+                        <div class="task-item">
+                            <div class="task-checkbox"></div>
+                            <div class="task-info">
+                                <div class="task-title">Review client feedback</div>
+                                <div class="task-date">Due: Tomorrow</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <div class="task-checkbox"></div>
+                            <div class="task-info">
+                                <div class="task-title">Prepare project presentation</div>
+                                <div class="task-date">Due: Aug 28</div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item">
+                            <div class="task-checkbox checked"><i class="fas fa-check"></i></div>
+                            <div class="task-info">
+                                <div class="task-title">Update documentation</div>
+                                <div class="task-date">Completed</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-panel">
+                        <h3><i class="fas fa-chart-simple"></i> Project Stats</h3>
+                        
+                        <div class="stat-item">
+                            <div class="stat-label">Completion Rate</div>
+                            <div class="stat-value">78%</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 78%;"></div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-label">Tasks Completed</div>
+                            <div class="stat-value">32/41</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-label">Team Members</div>
+                            <div class="stat-value">5</div>
+                        </div>
+                        
+                        <div class="stat-item">
+                            <div class="stat-label">Days Remaining</div>
+                            <div class="stat-value">12</div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="page-card">
-                    <div class="page-content">
-                        <div class="page-icon">
-                            <i class="fas fa-sign-in-alt"></i>
-                        </div>
-                        <h3>Login</h3>
-                        <p>Access your account with your credentials</p>
-                        <a href="login.html" class="page-link">Login Now</a>
-                    </div>
-                </div>
-                
-                <div class="page-card">
-                    <div class="page-content">
-                        <div class="page-icon">
-                            <i class="fas fa-user-plus"></i>
-                        </div>
-                        <h3>Register</h3>
-                        <p>Create a new account to access all features</p>
-                        <a href="register.html" class="page-link">Sign Up</a>
-                    </div>
-                </div>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2>Ready to Boost Your Productivity?</h2>
+            <p>Join thousands of users who are already managing their tasks efficiently with TaskFlow</p>
+            <div class="cta-buttons">
+                <a href="register.html" class="btn btn-light">Create Account</a>
+                <a href="login.html" class="btn btn-outline-light">Login Now</a>
             </div>
         </section>
         
         <footer>
             <div class="footer-content">
-                <p>&copy; 2023 My Website. All rights reserved.</p>
+                <div class="footer-logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <span>TaskFlow</span>
+                </div>
+                
+                <p>Smart task management for teams and individuals</p>
+                
                 <ul class="footer-links">
                     <li><a href="#">Home</a></li>
                     <li><a href="dashboard.html">Dashboard</a></li>
                     <li><a href="login.html">Login</a></li>
                     <li><a href="register.html">Register</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
                 </ul>
-                <p>Deployed on <a href="https://www.netlify.com/" style="color: #00c7b7;">Netlify</a></p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2023 TaskFlow. All rights reserved. | Deployed on <a href="https://www.netlify.com/" style="color: var(--accent);">Netlify</a></p>
+                </div>
             </div>
         </footer>
     </div>
 
     <script>
-        // Simple JavaScript to demonstrate navigation
+        // Simple JavaScript for interactive elements
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Website loaded successfully!');
+            console.log('TaskFlow website loaded successfully!');
             
-            // Add click event to navigation links
+            // Task checkbox interaction
+            const taskCheckboxes = document.querySelectorAll('.task-checkbox:not(.checked)');
+            taskCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    this.classList.toggle('checked');
+                    if (this.classList.contains('checked')) {
+                        this.innerHTML = '<i class="fas fa-check"></i>';
+                    } else {
+                        this.innerHTML = '';
+                    }
+                });
+            });
+            
+            // Navigation active state
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => {
                 link.addEventListener('click', function() {
                     navLinks.forEach(l => l.classList.remove('active'));
                     this.classList.add('active');
-                });
-            });
-            
-            // Simulate page loading for demonstration
-            const pageLinks = document.querySelectorAll('.page-link');
-            pageLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href === '#') {
-                        e.preventDefault();
-                        alert('You are already on the home page!');
-                    } else if (href === 'dashboard.html' || href === 'login.html' || href === 'register.html') {
-                        e.preventDefault();
-                        alert(`In a real website, this would navigate to ${href}`);
-                    }
                 });
             });
         });
