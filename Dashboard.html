@@ -65,7 +65,41 @@
             </form>
         </div>
     </div>
-
+<!-- Task Modal -->
+<div id="taskModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>Add New Task</h3>
+      <span class="modal-close" data-modal="taskModal">&times;</span>
+    </div>
+    <form id="taskForm">
+      <div class="form-group">
+        <label for="taskTitle">Task Title</label>
+        <input type="text" id="taskTitle" name="taskTitle" required placeholder="e.g., Buy domain name">
+      </div>
+      <!-- We can add more fields later (description, due date) -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-modal-close="taskModal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Add Task</button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- Confirmation Modal -->
+<div id="confirmationModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="confirmationModalTitle">Confirm Action</h3>
+    </div>
+    <div class="modal-body">
+      <p id="confirmationModalMessage">Are you sure you want to do this?</p>
+    </div>
+    <div class="modal-footer">
+      <button id="confirmationCancelBtn" class="btn btn-secondary">Cancel</button>
+      <button id="confirmationConfirmBtn" class="btn btn-primary">Confirm</button>
+    </div>
+  </div>
+</div>
     <!-- Added defer attribute -->
     <script src="js/dashboard.js" defer></script>
 </body>

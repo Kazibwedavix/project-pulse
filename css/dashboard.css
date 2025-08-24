@@ -137,9 +137,52 @@
   font-weight: 600;
 }
 
-/* ==================== */
+/* Style for the project item and delete button */
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.5rem;
+    background-color: white;
+    border-radius: var(--border-radius);
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.project-name {
+    flex: 1; /* Takes up all available space */
+}
+
+.project-delete-btn {
+    background: none;
+    border: none;
+    color: var(--error-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.6;
+    padding: 0;
+    line-height: 1;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2; /* Ensures it's clickable above the project item */
+}
+
+.project-delete-btn:hover {
+    opacity: 1;
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* Ensure the project item hover doesn't affect the button */
+.project-item:hover .project-delete-btn {
+    opacity: 0.8;
+}
+
 /* TASK VIEW COMPONENT */
-/* ==================== */
 .task-view {
   flex: 1;
   padding: 1.5rem;
@@ -182,6 +225,70 @@
 
 .task-list {
   min-height: 200px;
+}
+
+/* In dashboard.css - Add to the task view section */
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    border: 1px solid #eee;
+}
+
+.task-checkbox {
+    cursor: pointer;
+}
+
+.task-text {
+    flex: 1;
+}
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #888; /* Muted color for completed tasks */
+}
+
+/* Style for the task delete button */
+.task-delete-btn {
+    background: none;
+    border: none;
+    color: var(--error-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.6;
+    padding: 0;
+    line-height: 1;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-delete-btn:hover {
+    opacity: 1;
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+/* Styles for inline task editing */
+.task-text-container {
+    flex: 1;
+    position: relative;
+}
+
+.task-edit-input {
+    width: 100%;
+    padding: 0.2rem 0.5rem;
+    font-size: inherit;
+    font-family: inherit;
+    border: 1px solid var(--primary-color);
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
 /* ==================== */
@@ -250,6 +357,7 @@
   padding: 1.5rem;
 }
 
+
 /* In dashboard.css - Add button component styles */
 .btn {
     padding: 0.5rem 1rem;
@@ -301,7 +409,40 @@
  width: auto !important; /* Override the 100% width */
     flex-shrink: 0; /* Prevent buttons from shrinking */    }
 }
-/* ==================== */
+
+/* Confirmation Modal Specific Styles */
+#confirmationModal .modal-content {
+    max-width: 400px; /* Slightly narrower for confirmation dialogs */
+}
+
+#confirmationModal .modal-body {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+#confirmationModal .modal-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1.5rem 1.5rem;
+}
+
+#confirmationModalTitle {
+    color: var(--error-color); /* Red color for warning/attention */
+    text-align: center;
+    width: 100%;
+}
+
+/* Mobile responsive for confirmation modal */
+@media (max-width: 600px) {
+    #confirmationModal .modal-footer {
+        flex-direction: column;
+    }
+    
+    #confirmationModal .modal-footer button {
+        width: 100%;
+    }
+}
 /* RESPONSIVE DESIGN */
 /* ==================== */
 
