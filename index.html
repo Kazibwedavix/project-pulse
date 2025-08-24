@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netlify Deployment Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #00c7b7;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .logo i {
+            font-size: 36px;
+        }
+        
+        .logo h1 {
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: #00c7b7;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+        }
+        
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .step-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #00c7b7;
+            transition: transform 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .step-number {
+            background: #00c7b7;
+            color: white;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .step-title {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #2d3436;
+        }
+        
+        .step-content {
+            color: #636e72;
+        }
+        
+        .code-block {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+        
+        .tip-box {
+            background: #ffeaa7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #fdcb6e;
+        }
+        
+        .warning-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #e57373;
+        }
+        
+        .deploy-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .method-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .method-card:hover {
+            border-color: #00c7b7;
+            box-shadow: 0 5px 15px rgba(0, 199, 183, 0.1);
+        }
+        
+        .method-icon {
+            font-size: 40px;
+            color: #00c7b7;
+            margin-bottom: 15px;
+        }
+        
+        .method-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2d3436;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #00c7b7;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #00a396;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: #6c5ce7;
+        }
+        
+        .btn-secondary:hover {
+            background: #5649c5;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #7a7a7a;
+            font-size: 14px;
+            border-top: 1px solid #eaeaea;
+            background: #f8f9fa;
+        }
+        
+        @media (max-width: 768px) {
+            .steps, .deploy-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fab fa-netlify"></i>
+                <h1>Netlify Deployment Guide</h1>
+            </div>
+            <p class="subtitle">Step-by-step instructions to deploy your website successfully</p>
+        </header>
+        
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-lightbulb"></i> Before You Begin</h2>
+                <p>Make sure you have the following ready:</p>
+                <ul style="margin: 15px 0 15px 30px; color: #636e72;">
+                    <li>Your website files (HTML, CSS, JS, images, etc.)</li>
+                    <li>A Netlify account (sign up at <a href="https://netlify.com" target="_blank">netlify.com</a>)</li>
+                    <li>If using Git, your repository URL (GitHub, GitLab, or Bitbucket)</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-list-ol"></i> Deployment Steps</h2>
+                <div class="steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Prepare Your Files</h3>
+                        <p class="step-content">Ensure your main HTML file is named <code>index.html</code> and is in the root folder. Organize all assets in proper folders (css, js, images).</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Drag & Drop Deployment</h3>
+                        <p class="step-content">Go to Netlify's dashboard, find the drag-and-drop area, and upload your folder containing all website files.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Wait for Deployment</h3>
+                        <p class="step-content">Netlify will process your files and deploy your site. This usually takes less than a minute.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Access Your Site</h3>
+                        <p class="step-content">Once deployed, Netlify will provide you with a unique URL to access your live website.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-exclamation-circle"></i> Common Issues & Solutions</h2>
+                
+                <div class="warning-box">
+                    <h3><i class="fas fa-times-circle"></i> Page Not Found Error</h3>
+                    <p>If you see a "Page Not Found" error, make sure your main HTML file is named <code>index.html</code> and is in the root folder.</p>
+                </div>
+                
+                <div class="warning-box">
+                    <h3><i class="fas fa-times-circle"></i> Styling Not Applied</h3>
+                    <p>If your CSS isn't loading, check that the file paths in your HTML are correct. Use relative paths like <code>css/style.css</code> instead of absolute paths.</p>
+                </div>
+                
+                <div class="tip-box">
+                    <h3><i class="fas fa-lightbulb"></i> Custom Domain Setup</h3>
+                    <p>To use a custom domain, go to Domain settings in your Netlify dashboard and follow the instructions to configure your DNS records.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2 class="section-title"><i class="fas fa-rocket"></i> Deployment Methods</h2>
+                <div class="deploy-methods">
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h3 class="method-title">Drag & Drop</h3>
+                        <p>Simply drag your folder containing website files to Netlify's dashboard.</p>
+                        <a href="https://app.netlify.com/drop" target="_blank" class="btn">Try It</a>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <h3 class="method-title">Git Deployment</h3>
+                        <p>Connect your GitHub, GitLab, or Bitbucket repository for automatic deployments.</p>
+                        <a href="https://docs.netlify.com/configure-builds/get-started/" target="_blank" class="btn btn-secondary">Learn More</a>
+                    </div>
+                    
+                    <div class="method-card">
+                        <div class="method-icon">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <h3 class="method-title">Netlify CLI</h3>
+                        <p>Use the command line interface to deploy from your local development environment.</p>
+                        <a href="https://docs.netlify.com/cli/get-started/" target="_blank" class="btn">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <h2 style="color: #00c7b7; margin-bottom: 20px;">Need More Help?</h2>
+                <p style="margin-bottom: 20px; color: #636e72;">Check out Netlify's comprehensive documentation or visit their support forum.</p>
+                <a href="https://docs.netlify.com/" target="_blank" class="btn">Netlify Documentation</a>
+                <a href="https://community.netlify.com/" target="_blank" class="btn btn-secondary">Community Forum</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>This guide is created for educational purposes. Netlify is a trademark of Netlify, Inc.</p>
+        </footer>
+    </div>
+</body>
+</html>
